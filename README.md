@@ -26,6 +26,9 @@ this just starts the git, only got to do this once.
 * `git init` after typing this, you can begin *gitting* in your current directory
 * `git init yourfolderhere` you can begin *gitting* in *yourfolderhere*.
 
+If you would like to clone an existing repo, just use the `git clone`
+* `git clone http://git-url.git` also -- this automatically inits : )
+
 Congrats! Now you can git, add the files you want to keep track of (goto staging -> committing)
 
 ### Staging
