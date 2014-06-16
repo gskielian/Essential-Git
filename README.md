@@ -22,8 +22,12 @@ Categories:
 
 ### Initialize
 
-* `git init`
-* `git init mydirectory` replace mydirectory with the directory you want to start tracking changes.
+this just starts the git, only got to do this once.
+
+* `git init` after typing this, you can begin *gitting* in your current directory
+* `git init yourfolderhere` you can begin *gitting* in *yourfolderhere*.
+
+Congrats! Now you can git, add the files you want to keep track of (goto staging -> committing)
 
 ### Staging
 
@@ -64,18 +68,50 @@ For checking log of changes:
 
 ### Syncing
 
+Only need to do this once for each git url (I call these remote-gits -- because they are usually somewhere far away):
 * `git remote add origin place_your_git_url_here` -- you can now sync with the `git` associated with this url (push, pull, fetch, merge, and stuff) replace `origin` with another name to call it something different: example `git remote add otherserver http://somegit.git` allows you to sync with http://somegit.git through the alias `otherserver` -- see next line for additional example.
+
+Update a remote-git:
 * `git push origin master` -- tries to update the "origin"'s git master with your changes.  Another example `git push otherserver master` attempts to update the "otherserver"'s git with your modifications.
-* `git pull origin master` -- if the git at the remote called "origin" is 
+
+Update your local-git from a remote-git:
+* `git pull origin master` -- if the git at the remote called "origin" has changes you don't have, use this to get yours up to date.
+
+Merge Conflicts -- if you have updates and the remote-git has updates to the same file, you must figure stuff out manually.
+Do a pull, and comb through the files to choose who's update (local or remote) you want to keep.
 
 
+### Branching/Merging
+
+Branching makes a copy of your code that you can mess around with it while leaving your stable code alone. (this is the way I use branches)
+
+List all branches
+* `git branch` shows the branch you are currently on is starred with a *, also shows other branches any.
+
+How to make a branch:
+* `git branch some_feature` this command creates a branch called "some_feature"
+
+How to move to another branch:
+* `git checkout some_feature` allows you to "check out" and see that branch (in this case you are checking out some_feature).
+
+Hybrid Command:
+* `git checkout -b a_new_branch` very useful: creates the new branch and switches to it.
 
 
+Merging -- suppose your changes are debugged and ready to become live, merge your changes back into the master (aka stabble) branch:
 
+The following commands do the job
+```sh
+git checkout master
+git merge some_feature
+```
+Tada! you may want to delete the remnants of your feature-branch now that you're done with it:
+* `git branch -d some_feature`
 
+### Summary
 
+These are the basic commands which I use on the daily.
 
+For workflows see the `Workflow.md` which is coming soon...
 
-
-
-### Committing
+(starring this repo will make that file happen create itself faster).
